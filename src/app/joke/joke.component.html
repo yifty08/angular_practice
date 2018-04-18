@@ -1,5 +1,22 @@
-<h4>{{joke.setup}}</h4>
+<div class="card">
+	<div class="card-body">
+		<h4 class="card-title">	
+			{{joke.setup}}
+		</h4>
 
-<p>
-  {{joke.punchline}}
-</p>
+		<p class="card-text" [hidden]="joke.hide">
+			{{joke.punchline}}
+		</p>
+		
+
+		<div>
+			<button 
+				class="btn btn-primary"
+				(click)="joke.toggle()">{{joke.msgText}}
+			</button>
+		</div>
+		
+		
+	</div>
+</div>
+
