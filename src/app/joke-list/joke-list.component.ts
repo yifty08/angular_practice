@@ -39,4 +39,30 @@ export class JokeListComponent implements OnInit {
   ngOnInit() {
   }
 
+  addJoke(joke: Joke) {
+    // console.log('addJoke', joke);
+    this.jokes.unshift(joke);
+  }
+
+  deleteJoke(joke: Joke) {
+    console.log(joke)
+    const indexToDelete = this.jokes.indexOf(joke);
+    if (indexToDelete !== -1) {
+      this.jokes.splice(indexToDelete, 1);
+    }
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

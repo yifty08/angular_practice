@@ -8,15 +8,21 @@
 			{{joke.punchline}}
 		</p>
 		
-
-		<div>
-			<button 
-				class="btn btn-primary"
-				(click)="joke.toggle()">{{joke.msgText}}
-			</button>
-		</div>
-		
-		
+    <div class="btn-toolbar" role="toolbar" aria-label="Show/hide and delete buttons">
+  		<div class="btn-group mr-2" role="group" aria-label="Show/hide answer">
+  			<button 
+  				class="btn btn-primary"
+  				(click)="joke.toggle()">{{joke.msgText}}
+  			</button>
+  		</div>
+  		<div class="btn-group" role="group" aria-label="Delete joke">
+          <button 
+            class="btn btn-primary"
+            (click) = "deleteJoke()"
+            >Delete
+          </button>
+      </div>
+    </div>	
 	</div>
 </div>
 

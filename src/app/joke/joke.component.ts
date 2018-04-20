@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import  { Joke } from '../joke';
 
 
@@ -10,14 +10,20 @@ import  { Joke } from '../joke';
 })
 export class JokeComponent implements OnInit {
 
-	joke: Joke;
+	@Input() joke: Joke;
+  @Output() doDeleteJoke = new EventEmitter<Joke>();
+  answerHidden: boolean;
 
   constructor() { 
 
-    this.joke = new Joke (
-      "What did cheese say when it looked in mirror?",
-      "halloumi"
-    );
+    this.answerHidden = true; 
+
+
+
+    // this.joke = new Joke (
+    //   "What did cheese say when it looked in mirror?",
+    //   "halloumi"
+    // );
 
 
 
@@ -34,4 +40,26 @@ export class JokeComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggle() {
+    this.answerHidden = !this.answerHidden;
+  }
+
+  deleteJoke() {
+    console.log('emitting doDeleteJoke for', this.joke.setup);
+    this.doDeleteJoke.emit(this.joke);
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
